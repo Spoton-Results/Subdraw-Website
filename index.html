@@ -409,6 +409,53 @@
       .benefits-grid{grid-template-columns:1fr}
       .footer-top{grid-template-columns:1fr}
     }
+    /* ── SCREENSHOTS ── */
+    .screenshots-wrapper{position:relative;margin:0 auto;max-width:420px;display:flex;flex-direction:column;gap:14px}
+    .screenshot-glow{
+      position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+      width:500px;height:300px;
+      background:radial-gradient(ellipse at center,rgba(0,212,168,.1) 0%,transparent 70%);
+      pointer-events:none;z-index:0
+    }
+    .screenshot-primary{position:relative;z-index:1}
+    .screenshot-label{margin-bottom:8px;text-align:center}
+    .screenshot-badge{
+      display:inline-flex;align-items:center;gap:6px;
+      background:var(--red-dim);border:1px solid rgba(255,59,92,.25);
+      color:var(--red);font-size:.75rem;font-weight:600;
+      padding:5px 12px;border-radius:100px
+    }
+    .screenshot-img{
+      width:100%;border-radius:14px;
+      box-shadow:var(--shadow-lg),0 0 0 1px var(--border);
+      display:block;position:relative;z-index:1
+    }
+    .screenshot-img-sm{border-radius:10px}
+    .screenshot-secondary{display:flex;flex-direction:column;gap:6px}
+    .screenshot-caption{font-size:.75rem;color:var(--hint);text-align:center}
+
+    /* ── PROOF SECTION ── */
+    .proof-section{background:var(--charcoal);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .proof-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .proof-text h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:16px}
+    .proof-text h2 em{color:var(--teal);font-style:normal}
+    .proof-text p{color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:20px}
+    .proof-stat{
+      display:flex;align-items:baseline;gap:10px;
+      padding:14px 0;border-bottom:1px solid var(--border)
+    }
+    .proof-stat:last-of-type{border-bottom:none}
+    .proof-stat-num{font-size:1.6rem;font-weight:800;color:var(--teal);font-family:'JetBrains Mono',monospace;flex-shrink:0}
+    .proof-stat-label{font-size:.875rem;color:var(--muted)}
+    .proof-screenshots{display:flex;flex-direction:column;gap:12px}
+    .proof-img{width:100%;border-radius:12px;box-shadow:var(--shadow),0 0 0 1px var(--border);display:block}
+    .proof-img-caption{font-size:.72rem;color:var(--hint);text-align:center;margin-top:6px}
+
+    @media(max-width:860px){
+      .proof-inner{grid-template-columns:1fr}
+      .screenshots-wrapper{max-width:100%}
+    }
+
     @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
   </style>
 </head>
@@ -470,122 +517,30 @@
         </div>
       </div>
 
-      <!-- Dashboard mockup -->
-      <div class="dashboard-wrapper anim d2">
-        <div class="dashboard-glow"></div>
-        <div class="dashboard-mockup">
-          <div class="dash-topbar">
-            <div class="tb-dot tb-red"></div>
-            <div class="tb-dot tb-yellow"></div>
-            <div class="tb-dot tb-green"></div>
-            <div class="tb-url">app.subdraw.com/draws/highland-tower</div>
+      <!-- Real product screenshots -->
+      <div class="screenshots-wrapper anim d2">
+        <div class="screenshot-glow"></div>
+        <!-- Primary: flagged invoice screenshot -->
+        <div class="screenshot-primary">
+          <div class="screenshot-label">
+            <span class="screenshot-badge">🚩 Live — SubDraw just caught this</span>
           </div>
-          <div class="dash-body">
-            <div class="dash-sb">
-              <div class="sb-logo">Sub<em>Draw</em></div>
-              <div class="sb-grp">Draws</div>
-              <div class="sb-item on">📊 Highland Tower</div>
-              <div class="sb-item">🏢 Elm Street Plaza</div>
-              <div class="sb-item">🏗️ Riverside HQ</div>
-              <div class="sb-grp">Review</div>
-              <div class="sb-item">🧾 Invoices <span class="sb-badge">3</span></div>
-              <div class="sb-item">📋 Change Orders</div>
-              <div class="sb-item">🔒 Retainage</div>
-              <div class="sb-item">📄 Lien Waivers</div>
-            </div>
-            <div class="dash-main">
-              <div class="dash-hd">
-                <div>
-                  <div class="dash-title">Highland Tower — Draw Review</div>
-                  <div class="dash-sub">Updated 2 min ago · 14 active subs · <span style="color:var(--red)">3 flagged</span></div>
-                </div>
-                <div class="dash-acts">
-                  <button class="dash-btn">Export</button>
-                  <button class="dash-btn dash-btn-p">Approve Clean</button>
-                </div>
-              </div>
-              <div class="met-grid">
-                <div class="met-card">
-                  <div class="met-lbl">Draw Total</div>
-                  <div class="met-val">$387K</div>
-                  <div class="met-sub met-dn">⚠ 3 flagged</div>
-                </div>
-                <div class="met-card">
-                  <div class="met-lbl">Caught Errors</div>
-                  <div class="met-val" style="color:var(--teal)">$22.4K</div>
-                  <div class="met-sub met-up">before payment</div>
-                </div>
-                <div class="met-card">
-                  <div class="met-lbl">Lien Waivers</div>
-                  <div class="met-val">8/11</div>
-                  <div class="met-sub" style="color:var(--amber)">3 pending</div>
-                </div>
-                <div class="met-card">
-                  <div class="met-lbl">Clean to Pay</div>
-                  <div class="met-val" style="color:var(--green)">$364K</div>
-                  <div class="met-sub met-up">10 approved</div>
-                </div>
-              </div>
-              <div class="dash-card">
-                <div class="dash-card-hd">
-                  <div class="dash-card-title">Invoice Review — Pending Approval</div>
-                  <span class="tag tag-red">3 Errors Found</span>
-                </div>
-                <table class="dash-tbl">
-                  <thead><tr>
-                    <th>Subcontractor</th><th>Trade</th><th>Amount</th>
-                    <th>Budget Used</th><th>Flag</th><th>Status</th>
-                  </tr></thead>
-                  <tbody>
-                    <tr>
-                      <td><strong>Apex Electrical</strong></td><td style="color:var(--muted)">Electrical</td><td class="mono">$142,000</td>
-                      <td>
-                        <div style="display:flex;align-items:center;gap:7px">
-                          <div class="prog"><div class="prog-fill prog-red" style="width:100%"></div></div>
-                          <span style="color:var(--red);font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.65rem">108%</span>
-                        </div>
-                      </td>
-                      <td><span style="color:var(--red);font-size:.9rem">🚩</span> <span style="font-size:.65rem;color:var(--red)">Overbilled $11.2K</span></td>
-                      <td><span class="tag tag-red">FLAGGED</span></td>
-                    </tr>
-                    <tr>
-                      <td><strong>Summit HVAC</strong></td><td style="color:var(--muted)">Mechanical</td><td class="mono">$74,200</td>
-                      <td>
-                        <div style="display:flex;align-items:center;gap:7px">
-                          <div class="prog"><div class="prog-fill prog-amber" style="width:95%"></div></div>
-                          <span style="color:var(--amber);font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.65rem">95%</span>
-                        </div>
-                      </td>
-                      <td><span style="color:var(--amber);font-size:.9rem">⚠️</span> <span style="font-size:.65rem;color:var(--amber)">Work incomplete</span></td>
-                      <td><span class="tag tag-amber">REVIEW</span></td>
-                    </tr>
-                    <tr>
-                      <td><strong>Ironclad Steel</strong></td><td style="color:var(--muted)">Structural</td><td class="mono">$98,500</td>
-                      <td>
-                        <div style="display:flex;align-items:center;gap:7px">
-                          <div class="prog"><div class="prog-fill prog-teal" style="width:82%"></div></div>
-                          <span style="color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.65rem">82%</span>
-                        </div>
-                      </td>
-                      <td><span style="color:var(--green)">✓</span> <span style="font-size:.65rem;color:var(--muted)">Clean</span></td>
-                      <td><span class="tag tag-green">APPROVED</span></td>
-                    </tr>
-                    <tr>
-                      <td><strong>Concrete Plus</strong></td><td style="color:var(--muted)">Concrete</td><td class="mono">$56,800</td>
-                      <td>
-                        <div style="display:flex;align-items:center;gap:7px">
-                          <div class="prog"><div class="prog-fill prog-green" style="width:61%"></div></div>
-                          <span style="color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.65rem">61%</span>
-                        </div>
-                      </td>
-                      <td><span style="color:var(--green)">✓</span> <span style="font-size:.65rem;color:var(--muted)">Clean</span></td>
-                      <td><span class="tag tag-green">APPROVED</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <img
+            src="screenshot-flagged-invoice.jpg"
+            alt="SubDraw catching a flagged invoice — Pacific Electric overbilled $6,500"
+            class="screenshot-img"
+            loading="lazy"
+          />
+        </div>
+        <!-- Secondary: scoreboard screenshot -->
+        <div class="screenshot-secondary">
+          <img
+            src="screenshot-scoreboard.jpg"
+            alt="SubDraw live financial scoreboard showing all active subcontractors"
+            class="screenshot-img screenshot-img-sm"
+            loading="lazy"
+          />
+          <div class="screenshot-caption">Live financial scoreboard — every sub, every draw</div>
         </div>
       </div>
     </div>
@@ -691,6 +646,48 @@
   </div>
 </section>
 
+<!-- PROOF — REAL PRODUCT SCREENSHOTS -->
+<section class="proof-section">
+  <div class="container">
+    <div class="proof-inner">
+      <div class="proof-text" data-reveal>
+        <span class="sec-tag" style="margin-bottom:16px;display:inline-flex">Real Product · Real Catches</span>
+        <h2>SubDraw caught this <em>before</em> Pacific Electric got paid</h2>
+        <p>
+          Pacific Electric submitted $56,000 against an approved contract of $50,550.
+          SubDraw flagged the $5,450 discrepancy automatically — before anyone clicked approve.
+          The GC sent it back. The invoice got corrected. Money stayed in their pocket.
+        </p>
+        <div class="proof-stat">
+          <div class="proof-stat-num">$5,450</div>
+          <div class="proof-stat-label">caught on this single invoice before payment</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-num">$5,600</div>
+          <div class="proof-stat-label">retainage tracked automatically with zero manual work</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-num">100%</div>
+          <div class="proof-stat-label">invoiced — SubDraw showed the GC exactly where they stood</div>
+        </div>
+        <a href="https://subdraw.com/login" class="btn btn-primary" style="margin-top:24px">
+          See It on Your Own Draw →
+        </a>
+      </div>
+      <div class="proof-screenshots" data-reveal>
+        <div>
+          <img src="screenshot-flagged-invoice.jpg" alt="SubDraw Action Required dashboard showing flagged Pacific Electric invoice" class="proof-img" loading="lazy"/>
+          <div class="proof-img-caption">Action Required — SubDraw flagged Pacific Electric before payment</div>
+        </div>
+        <div>
+          <img src="screenshot-financial.jpg" alt="SubDraw Financial Scoreboard showing Pacific Electric contract totals" class="proof-img" loading="lazy"/>
+          <div class="proof-img-caption">Financial Scoreboard — every number, live and accurate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section class="hiw-section" id="how-it-works">
   <div class="container">
@@ -732,16 +729,12 @@
       <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.03em">Watch SubDraw Catch a<br><em style="color:var(--teal);font-style:normal">$14,800 Overbilling</em></h2>
       <p class="sec-desc">Real invoice. Real flag. Real money back in your pocket before you clicked approve.</p>
     </div>
-    <div class="video-wrap" id="video">
-      <div class="video-bg">
-        <div style="font-size:3rem">🎬</div>
-        <div class="video-bg-text">Demo video coming soon</div>
-        <div style="font-size:.8rem;color:var(--hint)">Screen recording of SubDraw catching a real invoice error</div>
-      </div>
-      <div class="play-btn">
+    <div class="video-wrap" id="video" style="aspect-ratio:unset;min-height:340px">
+      <img src="screenshot-scoreboard.jpg" alt="SubDraw live financial scoreboard" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px;filter:brightness(.5)"/>
+      <div class="play-btn" style="position:absolute">
         <div class="play-icon"></div>
       </div>
-      <div class="video-label">2 min · No audio required</div>
+      <div class="video-label" style="position:absolute">Coming soon — 2 min demo · No audio required</div>
     </div>
     <div style="text-align:center;margin-top:32px">
       <a href="https://subdraw.com/login" class="btn btn-primary btn-lg">
