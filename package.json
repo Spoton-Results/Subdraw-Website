@@ -1,0 +1,10 @@
+{
+  "name": "subdraw-landing",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "serve . -p $PORT --single"
+  },
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}
