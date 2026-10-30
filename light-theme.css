@@ -1,0 +1,61 @@
+:root {
+  color-scheme: light;
+  --teal: #087f73;
+  --teal-dark: #06685f;
+  --teal-dim: rgba(8,127,115,.08);
+  --teal-border: rgba(8,127,115,.2);
+  --navy: #f8fafc;
+  --charcoal: #f1f5f9;
+  --card: #ffffff;
+  --border: #dce3eb;
+  --border2: #b8c5d3;
+  --text: #172033;
+  --muted: #526176;
+  --hint: #5e6b7c;
+  --green: #087f5b;
+  --green-dim: rgba(8,127,91,.08);
+  --green-border: rgba(8,127,91,.2);
+  --amber: #965a08;
+  --amber-dim: rgba(150,90,8,.08);
+  --red: #bd2847;
+  --red-dim: rgba(189,40,71,.08);
+  --gold: #8a6400;
+  --shadow: 0 4px 24px rgba(23,32,51,.07);
+  --shadow-lg: 0 8px 48px rgba(23,32,51,.11);
+}
+
+header { background: rgba(255,255,255,.95); }
+.btn-primary, .logo-mark, .dash-btn-p, .popular-badge { color: #fff; }
+.btn-primary:hover { box-shadow: 0 6px 20px rgba(8,127,115,.35); }
+.hero { background: radial-gradient(ellipse 80% 60% at 50% -10%,rgba(8,127,115,.1) 0%,transparent 70%); }
+.dashboard-glow { background: radial-gradient(ellipse at center,rgba(8,127,115,.12) 0%,transparent 70%); }
+.screenshot-glow { background: radial-gradient(ellipse at center,rgba(8,127,115,.1) 0%,transparent 70%); }
+.dash-topbar, .dash-sb, .dash-tbl th { background: #eef3f7; }
+.dash-main { background: #f8fafc; }
+.tb-red { background: var(--red); }
+.tb-yellow { background: var(--amber); }
+.tb-green { background: var(--green); }
+.tag-red { border-color: rgba(189,40,71,.2); }
+.tag-amber { border-color: rgba(150,90,8,.2); }
+.sec-tag, .pain-card { background: #fff; }
+.video-wrap::before { background: linear-gradient(135deg,rgba(8,127,115,.05),transparent); }
+.play-btn:hover { box-shadow: 0 0 30px rgba(8,127,115,.4); }
+.play-icon { border-left-color: #fff; }
+.video-wrap .video-label { color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.65); }
+.plan.popular { background: rgba(8,127,115,.04); }
+.cta-section { background: radial-gradient(ellipse 100% 100% at 50% 100%,rgba(8,127,115,.12) 0%,transparent 70%); }
+.screenshot-badge { border-color: rgba(189,40,71,.25); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; }
+
+@keyframes pulse {
+  0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(8,127,115,.5); }
+  60% { opacity: .7; box-shadow: 0 0 0 5px rgba(8,127,115,0); }
+}
+
+/* Override the existing mobile-menu inline colors without changing its behavior. */
+@media (max-width: 860px) {
+  .nav-links[style] {
+    background: var(--card) !important;
+    border-bottom-color: var(--border) !important;
+  }
+}

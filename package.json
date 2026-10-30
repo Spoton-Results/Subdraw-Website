@@ -2,6 +2,8 @@
   "name": "subdraw-landing",
   "version": "1.0.0",
   "scripts": {
+    "build": "node prepare-theme.cjs",
+    "prestart": "node prepare-theme.cjs",
     "start": "serve . -p $PORT --single"
   },
   "dependencies": {
